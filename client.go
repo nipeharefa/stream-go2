@@ -568,7 +568,7 @@ func (c *Client) getActivitiesInternal(ctx context.Context, endpoint endpoint, f
 }
 
 func (c *Client) follow(ctx context.Context, feed Feed, opts *followFeedOptions) (*BaseResponse, error) {
-	endpoint := c.makeEndpoint("feed/%s/%s/follows/", feed.Slug(), feed.UserID())
+	endpoint := c.makeEndpoint("feed/%s/%s/following/", feed.Slug(), feed.UserID())
 	return decode(c.post(ctx, endpoint, opts, c.authenticator.feedAuth(resFollower, feed)))
 }
 
